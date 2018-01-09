@@ -10,6 +10,10 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
   io.emit('chat message', 'User connected');
   
+  socket.on('click', function() {
+    io.emit('click2')
+  })
+  
   socket.on('disconnect', function(){
     io.emit('chat message', 'User disconnected');
   });
