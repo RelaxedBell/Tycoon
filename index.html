@@ -4,25 +4,44 @@
     <title>Lukey.IO chat</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
+      #clicker {width: 25px; height: 25px; background: rgb(0,255,255);}
     </style>
   </head>
   <body>
-    <ul id="messages"></ul>
-    <form action="">
+    <p id='diplay'>Clicks: 0</p>
+    <div onClick='Click();' id='clicker'></div>
+    <script>
+    /*<form action="">
       <input value="User" id="usr" autocomplete="off" />
       <input id="m" autocomplete="off" />
       <button>Send</button>
-    </form>
+    </form>*/
+    </script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       $(function () {
+        var clicks = 0;
+        
         var socket = io();
-        $('form').submit(function(){
+        /*$('form').submit(function(){
           if($('#usr').val() !== '' || null && $('#m').val() !== '' || null) {
             socket.emit('chat message', $('#usr').val() + ': ' + $('#m').val());
           }
+        });*/
+        function Click() {
+          socket.emit('click');
+        }
+        
+        socket.on('clickReceive', function() {
+          clicks++;
         });
+        
+        function Update() {
+          document.getElementById('display').innerHTML = 'Clicks: '+clicks;
+        }
+        
+        setInterval(function() {Update()},10);
       });
     </script>
   </body>
