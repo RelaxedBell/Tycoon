@@ -11,7 +11,7 @@ io.on('connection', function(socket){
   io.emit('chat message', 'User connected');
   
   socket.on('click', function() {
-    io.emit('click2');
+    io.emit('clickReceive');
   });
   
   socket.on('disconnect', function(){
