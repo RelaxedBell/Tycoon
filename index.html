@@ -32,7 +32,7 @@
         });*/
         
         socket.on('clickReceive', function() {
-          clicks--;
+          console.log("Click Received");
         });
         
         function Update() {
@@ -42,7 +42,7 @@
         setInterval(function() {Update()},10);
       });
       function Click() {
-          clicks += 2;
+          clicks += 1;
           socket.emit('click');
         }
     </script>
