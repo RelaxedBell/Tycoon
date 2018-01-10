@@ -20,10 +20,11 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+      var socket;
       $(function () {
+        socket = io();
         var clicks = 0;
         
-        var socket = io();
         /*$('form').submit(function(){
           if($('#usr').val() !== '' || null && $('#m').val() !== '' || null) {
             socket.emit('chat message', $('#usr').val() + ': ' + $('#m').val());
