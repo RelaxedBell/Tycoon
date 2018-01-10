@@ -21,9 +21,9 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket;
+      var clicks = 0;
       $(function () {
         socket = io();
-        var clicks = 0;
         
         /*$('form').submit(function(){
           if($('#usr').val() !== '' || null && $('#m').val() !== '' || null) {
@@ -32,7 +32,7 @@
         });*/
         
         socket.on('clickReceive', function() {
-          clicks++;
+          clicks--;
         });
         
         function Update() {
@@ -42,6 +42,7 @@
         setInterval(function() {Update()},10);
       });
       function Click() {
+          clicks += 2;
           socket.emit('click');
         }
     </script>
