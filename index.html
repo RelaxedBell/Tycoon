@@ -29,10 +29,6 @@
             socket.emit('chat message', $('#usr').val() + ': ' + $('#m').val());
           }
         });*/
-        function Click() {
-          console.log('hi');
-          socket.emit('click');
-        }
         
         socket.on('clickReceive', function() {
           clicks++;
@@ -44,6 +40,10 @@
         
         setInterval(function() {Update()},10);
       });
+      function Click() {
+          console.log('hi');
+          socket.emit('click');
+        }
     </script>
   </body>
 </html>
