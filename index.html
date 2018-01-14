@@ -1,14 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <title>Click</title>
+    <title>Business Tycoon</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
       #clicker {width: 25px; height: 25px; background: rgb(0,255,255);}
     </style>
   </head>
   <body>
-    <p id='display'>Clicks: 0</p>
+    <p id='display'>Gold: 0</p>
     <button onclick='Click();' id='clicker'></button>
     <script>
     /*<form action="">
@@ -21,7 +21,7 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket;
-      var clicks = 0;
+      var goldCount = 0;
       $(function () {
         socket = io();
         
@@ -36,13 +36,13 @@
         });
         
         function Update() {
-          document.getElementById('display').innerHTML = 'Clicks: '+clicks;
+          document.getElementById('display').innerHTML = 'Gold: '+goldCount;
         }
         
         setInterval(function() {Update()},10);
       });
       function Click() {
-          clicks += 1;
+          goldCount += 1;
           socket.emit('click');
         }
     </script>
