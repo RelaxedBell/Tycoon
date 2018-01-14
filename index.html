@@ -10,13 +10,6 @@
   <body>
     <p id='display'>Gold: 0</p>
     <button onclick='Click();' id='clicker'></button>
-    <script>
-    /*<form action="">
-      <input value="User" id="usr" autocomplete="off" />
-      <input id="m" autocomplete="off" />
-      <button>Send</button>
-    </form>*/
-    </script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -24,16 +17,6 @@
       var goldCount = 0;
       $(function () {
         socket = io();
-        
-        /*$('form').submit(function(){
-          if($('#usr').val() !== '' || null && $('#m').val() !== '' || null) {
-            socket.emit('chat message', $('#usr').val() + ': ' + $('#m').val());
-          }
-        });*/
-        
-        socket.on('clickReceive', function() {
-          console.log("Click Received");
-        });
         
         function Update() {
           document.getElementById('display').innerHTML = 'Gold: '+goldCount;
@@ -43,7 +26,6 @@
       });
       function Click() {
           goldCount += 1;
-          socket.emit('click');
         }
     </script>
   </body>
