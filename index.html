@@ -23,7 +23,13 @@
         function Update() {
           document.getElementById('display').innerHTML = 'Gold: '+goldCount;
           if (goldCount >= 1) {
-            document.getElementById('ThoughtBox').innerHTML = 'ThoughtBox: Bored'
+            document.getElementById('ThoughtBox').innerHTML = 'ThoughtBox: You begin your humble mining career.'
+            if (goldCount >= 10) {
+              document.getElementById('ThoughtBox').innerHTML = 'ThoughtBox: Your friends tell you that you are crazy.'
+              if (goldCount >= 50) {
+                document.getElementById('ThoughtBox').innerHTML = 'ThoughtBox: You decide to mine anyway.'
+              }
+            }
           }
         }
         
