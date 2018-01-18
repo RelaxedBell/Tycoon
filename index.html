@@ -9,9 +9,9 @@
   </head>
   <body>
     <p id='display'>Gold: 0</p>
+    <button onclick='Click();' id='clicker'></button>
     <br>
     <p id='ThoughtBox'>ThoughtBox: Nothing</p>
-    <button onclick='Click();' id='clicker'></button>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
@@ -23,7 +23,7 @@
         function Update() {
           document.getElementById('display').innerHTML = 'Gold: '+goldCount;
           if (goldCount >= 1) {
-            document.getElementById('ThoughtBox').innerHtml = 'ThoughtBox: Bored'
+            document.getElementById('ThoughtBox').innerHTML = 'ThoughtBox: Bored'
           }
         }
         
